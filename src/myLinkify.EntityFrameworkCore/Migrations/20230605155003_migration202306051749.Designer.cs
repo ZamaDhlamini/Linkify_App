@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using myLinkify.EntityFrameworkCore;
 
@@ -11,9 +12,10 @@ using myLinkify.EntityFrameworkCore;
 namespace myLinkify.Migrations
 {
     [DbContext(typeof(myLinkifyDbContext))]
-    partial class myLinkifyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230605155003_migration202306051749")]
+    partial class migration202306051749
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

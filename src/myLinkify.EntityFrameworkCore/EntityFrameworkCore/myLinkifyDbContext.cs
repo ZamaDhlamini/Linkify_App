@@ -18,6 +18,8 @@ namespace myLinkify.EntityFrameworkCore
         public DbSet<Product> Products { get; set; }
         public DbSet<SarsNumber> SarsNumbers { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
+        public DbSet<Address> Addresses { get; set; }
+        public DbSet<GrantUser> GrantsUsers { get; set; }
         
         public myLinkifyDbContext(DbContextOptions<myLinkifyDbContext> options)
             : base(options)
