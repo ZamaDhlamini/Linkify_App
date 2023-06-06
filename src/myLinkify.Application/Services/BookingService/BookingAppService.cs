@@ -1,4 +1,8 @@
 ﻿using Abp.Application.Services;
+using Abp.Domain.Repositories;
+using AutoMapper;
+using myLinkify.Domain;
+using myLinkify.Domain.Enum;
 using myLinkify.Services.BookingService.Dto;
 using System;
 using System.Collections.Generic;
@@ -10,29 +14,49 @@ namespace myLinkify.Services.BookingService
 {
     public class BookingAppService : ApplicationService, IBookingAppService
     {
-        public Task<BookingDto> CreateAsync(BookingDto input)
+        private readonly IRepository<Booking, Guid> _bookingRepository;
+
+        public BookingAppService(IRepository<Booking, Guid> bookingRepository)
         {
-            throw new NotImplementedException();
+            _bookingRepository = bookingRepository;
         }
 
-        public Task Delete(Guid id)
+        public async Task<BookingDto> CreateAsync(BookingDto input)
         {
-            throw new NotImplementedException();
+            var booking = ObjectMapper.Map<Booking>(input);
+            var newBooking = await _bookingRepository.InsertAsync(booking);
+            return ObjectMapper.Map<BookingDto>(newBooking);
         }
 
-        public Task<List<BookingDto>> GetAllAsync()
+        public async Task Delete(Guid id)
         {
-            throw new NotImplementedException();
+            await _bookingRepository.DeleteAsync(id);
         }
 
-        public Task<BookingDto> GetAsync(Guid id)
+        public async Task<List<BookingDto>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            var bookings = await _bookingRepository.GetAllListAsync();
+            return ObjectMapper.Map<List<BookingDto>>(bookings);
         }
 
-        public Task<BookingDto> UpdateAsync(BookingDto input)
+        public async Task<BookingDto> GetAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var booking = await _bookingRepository.GetAsync(id);
+            return ObjectMapper.Map<BookingDto>(booking);
+        }
+
+        public async Task<BookingDto> UpdateAsync(BookingDto input)
+        {
+            var booking = await _bookingRepository.GetAsync(input.Id);
+            ObjectMapper.Map(input, booking);
+            var updatedBooking = await _bookingRepository.UpdateAsync(booking);
+            return ObjectMapper.Map<BookingDto>(updatedBooking);
+        }
+
+        public async Task<List<BookingDto>> GetBookingsByStatusAsync(RefListStatus status)
+        {
+            var bookings = await _bookingRepository.GetAllListAsync(b => b.Status == status);
+            return ObjectMapper.Map<List<BookingDto>>(bookings);
         }
     }
 }

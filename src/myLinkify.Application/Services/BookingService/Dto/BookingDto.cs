@@ -7,9 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using myLinkify.Services.Dto;
+using Abp.AutoMapper;
 
 namespace myLinkify.Services.BookingService.Dto
 {
+    [AutoMap(typeof(Booking))]
     public class BookingDto : EntityDto<Guid>
     {
         public  TimeSpan StartTime { get; set; } //slot numbers

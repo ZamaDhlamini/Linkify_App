@@ -1,4 +1,5 @@
 ﻿using Abp.Application.Services;
+using myLinkify.Domain.Enum;
 using myLinkify.Services.BookingService.Dto;
 using myLinkify.Services.CardService.Dto;
 using System;
@@ -15,6 +16,7 @@ namespace myLinkify.Services.BookingService
         Task<BookingDto> GetAsync(Guid id);
         Task<List<BookingDto>> GetAllAsync();
         Task<BookingDto> UpdateAsync(BookingDto input);
+        Task<List<BookingDto>> GetBookingsByStatusAsync(RefListStatus status);
         Task Delete(Guid id);
     }
 }
