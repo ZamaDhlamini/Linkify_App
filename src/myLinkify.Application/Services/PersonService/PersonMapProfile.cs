@@ -18,7 +18,7 @@ namespace myLinkify.Services.PersonService
                 .ForMember(x => x.userId, m => m.MapFrom(x => x.User != null ? x.User.Id : (long?)null));
 
             CreateMap<PersonDto, User>()
-                //.ForMember(x => x.CellNumber, m => m.MapFrom(x => x.CellNumber))
+                .ForMember(x => x.PhoneNumber, m => m.MapFrom(x => x.PhoneNumber))
                 .ForMember(x => x.Name, m => m.MapFrom(x => x.Name + " " + x.Surname))
                 .ForMember(x => x.Password, m => m.MapFrom(x => x.Password))
                 .ForMember(x => x.Surname, m => m.MapFrom(x => x.Surname));
