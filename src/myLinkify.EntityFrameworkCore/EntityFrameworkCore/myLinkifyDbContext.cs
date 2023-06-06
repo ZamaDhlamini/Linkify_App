@@ -20,6 +20,7 @@ namespace myLinkify.EntityFrameworkCore
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<GrantUser> GrantsUsers { get; set; }
+        public DbSet<StoredFile> StoredFiles { get; set; }
         
         public myLinkifyDbContext(DbContextOptions<myLinkifyDbContext> options)
             : base(options)
