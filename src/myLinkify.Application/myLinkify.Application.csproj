@@ -14,4 +14,8 @@
   <ItemGroup>
     <ProjectReference Include="..\myLinkify.Core\myLinkify.Core.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\Helpers\" />
+    <Folder Include="Services\PersonService\" />
+  </ItemGroup>
 </Project>

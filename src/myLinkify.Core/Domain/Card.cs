@@ -9,11 +9,7 @@ namespace myLinkify.Domain
 {
     public class Card: FullAuditedEntity<Guid>
     {
-        public int CardId { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string UserId { get; set; }
+        public virtual Person Person { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -21,6 +17,10 @@ namespace myLinkify.Domain
         /// <summary>
         /// 
         /// </summary>
-        public virtual string ExpiraryDate { get; set; }
+        public virtual int ExpiraryDateMonth { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual int ExpiraryDateYear { get; set; }
     }
 }

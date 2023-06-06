@@ -1,4 +1,5 @@
 ﻿using Abp.Domain.Entities.Auditing;
+using myLinkify.Domain.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,18 +10,26 @@ namespace myLinkify.Domain
 {
     public class Booking: FullAuditedEntity<Guid>
     {
-        public virtual string BookingId { get; set; }
-        public virtual string Time { get; set; }
+        public virtual DateTime BookingDate { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public virtual string Status { get; set; }
+        //public virtual string Time { get; set; }
+        /*public virtual TimeSpan Time { get; set; }*/ //slot numbers
+        public virtual TimeSpan StartTime { get; set; } //slot numbers
+        public virtual TimeSpan EndTime { get; set; } //slot numbers
+
         /// <summary>
         /// 
         /// </summary>
-        public virtual int BookingTooken { get; set; }
+        public virtual RefListStatus Status { get; set; }
         /// <summary>
         /// 
         /// </summary>
+        public virtual int BookingToken { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual Person Person { get; set; }
     }
 }

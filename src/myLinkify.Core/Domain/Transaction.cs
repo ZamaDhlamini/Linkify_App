@@ -9,8 +9,15 @@ namespace myLinkify.Domain
 {
     public class Transaction: FullAuditedEntity<Guid>
     {
-        public virtual int TransactionId { get; set; }
         public virtual string TransactionName { get; set;}
-        public virtual int Amount { get; set;}
+        public virtual Person Person { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual int Amount { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual DateTime Transactiondate { get; set; }
     }
 }

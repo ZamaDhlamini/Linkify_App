@@ -9,7 +9,6 @@ namespace myLinkify.Domain
 {
     public class Location: FullAuditedEntity<Guid>
     {
-        public virtual string LocationId { get; set; }
         /// <summary>
         /// 
         /// </summary>

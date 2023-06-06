@@ -9,8 +9,8 @@ namespace myLinkify.Domain
 {
     public class SarsNumber: FullAuditedEntity<Guid>
     {
-        public virtual int SarsNumberId { get; set; }
+        public virtual int Number { get; set; }
 
-        public virtual string UserId { get; set; }
+        public virtual Person Person { get; set; }
     }
 }

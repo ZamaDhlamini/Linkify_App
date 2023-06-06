@@ -9,7 +9,7 @@ namespace myLinkify.Domain
 {
     public class Grant: FullAuditedEntity<Guid>
     {
-        public virtual string Grant_Id { get; set; }
+        
         /// <summary>
         /// 
         /// </summary>

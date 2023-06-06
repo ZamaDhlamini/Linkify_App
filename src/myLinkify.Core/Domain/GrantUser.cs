@@ -11,70 +11,67 @@ namespace myLinkify.Domain
 {
     public class GrantUser: FullAuditedEntity<Guid>
     {
-        public virtual string IdNumber { get; set; }
+        public virtual Person Person { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual string SpouseIdNumber { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+
+        public StoredFile MarriageCertificate { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+
+        public StoredFile BankLetter { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+
+
+        public StoredFile IncomeDocument { get; set; }
         /// <summary>
         /// 
         /// </summary>
         /// 
-        public virtual string SpouseId { get; set; }
+
+        public StoredFile SassaAffidavit { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        /// 
-        [NotMapped]
-        public IFormFile MarriageCertificate { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// 
-        [NotMapped]
-        public IFormFile BankLetter { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// 
-        [NotMapped]
-        public IFormFile IncomeDocument { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// 
-        [NotMapped]
-        public IFormFile SassaAffidavit { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        [NotMapped]
-        public IFormFile BankStatement { get; set; }
+
+        public StoredFile BankStatement { get; set; }
         /// <summary>
         /// 
         /// </summary>
         ///
-        [NotMapped]
-        public IFormFile UifCard { get; set; }
+
+        public StoredFile UifCard { get; set; }
         /// <summary>
         /// 
         /// </summary>
         /// 
-        [NotMapped]
-        public IFormFile PoliceAffidavit { get; set; }
+
+        public StoredFile PoliceAffidavit { get; set; }
         /// <summary>
         /// 
         /// </summary>
         /// 
-        [NotMapped]
-        public IFormFile SocialWorkerReport { get; set; }
+
+        public StoredFile SocialWorkerReport { get; set; }
         /// <summary>
         /// 
         /// </summary>
         /// 
-        [NotMapped]
-        public IFormFile SpouseAffidavit { get; set; }
+
+        public StoredFile SpouseAffidavit { get; set; }
         /// <summary>
         /// 
         /// </summary>
         /// 
-        [NotMapped]
-        public IFormFile SchoolLetter { get; set; }
+
+        public StoredFile SchoolLetter { get; set; }
     }
 }

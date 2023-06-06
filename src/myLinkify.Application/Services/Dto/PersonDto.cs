@@ -1,21 +1,23 @@
-﻿using Abp.Domain.Entities.Auditing;
+﻿using Abp.Application.Services.Dto;
+using Abp.AutoMapper;
 using myLinkify.Authorization.Users;
-using myLinkify.Domain.Enum;
+using myLinkify.Domain;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace myLinkify.Domain
+namespace myLinkify.Services.Dto
 {
-    public class Person: FullAuditedEntity<Guid>
+    [AutoMap(typeof(Person))]
+    public class PersonDto : EntityDto<Guid>
     {
         public virtual string IdNumber { get; set; }
         /// <summary>
         /// 
         /// </summary>
+        /// 
         public virtual string Name { get; set; }
         /// <summary>
         /// 
@@ -44,9 +46,6 @@ namespace myLinkify.Domain
         /// 
         /// </summary>
         /// 
-        public virtual RefListGender Gender { get; set; }
-
-        [NotMapped]
         public virtual string[] RoleNames { get; set; }
     }
 }
