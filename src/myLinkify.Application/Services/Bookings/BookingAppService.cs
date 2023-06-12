@@ -3,7 +3,7 @@ using Abp.Domain.Repositories;
 using AutoMapper;
 using myLinkify.Domain;
 using myLinkify.Domain.Enum;
-using myLinkify.Services.BookingService.Dto;
+using myLinkify.Services.Bookings.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;

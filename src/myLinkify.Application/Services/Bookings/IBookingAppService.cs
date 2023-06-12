@@ -1,6 +1,6 @@
 ﻿using Abp.Application.Services;
 using myLinkify.Domain.Enum;
-using myLinkify.Services.BookingService.Dto;
+using myLinkify.Services.Bookings.Dto;
 using myLinkify.Services.CardService.Dto;
 using System;
 using System.Collections.Generic;

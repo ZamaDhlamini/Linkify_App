@@ -2,11 +2,8 @@
 using myLinkify.Domain;
 using myLinkify.Services.ProdcutService.Dto;
 using myLinkify.Services.ProdcutService;
-using myLinkify.Services.ProductService.Dto;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Abp.Domain.Repositories;
 
