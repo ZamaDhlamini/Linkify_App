@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace myLinkify.Services.BookingService
+namespace myLinkify.Services.Bookings
 {
     public class BookingAppService : ApplicationService, IBookingAppService
     {
