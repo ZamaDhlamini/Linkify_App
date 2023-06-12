@@ -1,78 +1,80 @@
-﻿using Abp.Domain.Entities.Auditing;
+﻿using Abp.Application.Services.Dto;
+using Abp.AutoMapper;
 using Microsoft.AspNetCore.Http;
+using myLinkify.Domain;
+using myLinkify.Services.Dto;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace myLinkify.Domain
+namespace myLinkify.Services.GrantUserService.Dto
 {
-    //Discriminator
-    //[Discriminator("GrantUser")]
-    public class GrantUser: Person
+    [AutoMap(typeof(GrantUser))]
+    public class GrantUserDto : PersonDto
     {
         /// <summary>
         /// 
         /// </summary>
-        public virtual string SpouseIdNumber { get; set; }
+        public  string SpouseIdNumber { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
 
-        public StoredFile MarriageCertificate { get; set; }
+        public IFormFile MarriageCertificate { get; set; }
         /// <summary>
         /// 
         /// </summary>
 
-        public StoredFile BankLetter { get; set; }
+        public IFormFile BankLetter { get; set; }
         /// <summary>
         /// 
         /// </summary>
 
 
-        public StoredFile IncomeDocument { get; set; }
+        public IFormFile IncomeDocument { get; set; }
         /// <summary>
         /// 
         /// </summary>
         /// 
 
-        public StoredFile SassaAffidavit { get; set; }
+        public IFormFile SassaAffidavit { get; set; }
         /// <summary>
         /// 
         /// </summary>
 
-        public StoredFile BankStatement { get; set; }
+        public IFormFile BankStatement { get; set; }
         /// <summary>
         /// 
         /// </summary>
         ///
 
-        public StoredFile UifCard { get; set; }
+        public IFormFile UifCard { get; set; }
         /// <summary>
         /// 
         /// </summary>
         /// 
 
-        public StoredFile PoliceAffidavit { get; set; }
+        public IFormFile PoliceAffidavit { get; set; }
         /// <summary>
         /// 
         /// </summary>
         /// 
 
-        public StoredFile SocialWorkerReport { get; set; }
+        public IFormFile SocialWorkerReport { get; set; }
         /// <summary>
         /// 
         /// </summary>
         /// 
 
-        public StoredFile SpouseAffidavit { get; set; }
+        public IFormFile SpouseAffidavit { get; set; }
         /// <summary>
         /// 
         /// </summary>
         /// 
 
-        public StoredFile SchoolLetter { get; set; }
+        public IFormFile SchoolLetter { get; set; }
     }
 }

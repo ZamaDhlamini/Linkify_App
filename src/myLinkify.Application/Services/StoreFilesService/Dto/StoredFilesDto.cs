@@ -1,5 +1,6 @@
 ﻿using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
+using Microsoft.AspNetCore.Http;
 using myLinkify.Domain;
 using System;
 using System.Collections.Generic;
@@ -12,8 +13,10 @@ namespace myLinkify.Services.StoreFilesService.Dto
     [AutoMap(typeof(StoredFile))]
     public class StoredFilesDto : EntityDto<Guid>
     {
-        public  string FileType { get; set; }
-        public  string FileName { get; set; }
-        public  string FileDescription { get; set; }
+        //public  string FileType { get; set; }
+        //public  string FileName { get; set; }
+        //public  string FileDescription { get; set; }
+
+        public IFormFile File { get; set; }
     }
 }
