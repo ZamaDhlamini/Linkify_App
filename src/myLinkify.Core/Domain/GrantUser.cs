@@ -6,11 +6,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using myLinkify.Domain.Antributes;
 
 namespace myLinkify.Domain
 {
     //Discriminator
     //[Discriminator("GrantUser")]
+    [DiscriminatorValue("GrantUser")]
     public class GrantUser: Person
     {
         /// <summary>
