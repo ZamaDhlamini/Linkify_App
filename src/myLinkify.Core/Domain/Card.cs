@@ -9,10 +9,11 @@ namespace myLinkify.Domain
 {
     public class Card: FullAuditedEntity<Guid>
     {
-        public virtual Person Person { get; set; }
+        public virtual GrantUser GrantUser { get; set; }
         /// <summary>
         /// 
         /// </summary>
+        /// 
         public virtual string CardNumber { get; set; }
         /// <summary>
         /// 

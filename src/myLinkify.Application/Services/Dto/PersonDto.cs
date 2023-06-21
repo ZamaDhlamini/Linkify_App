@@ -41,7 +41,7 @@ namespace myLinkify.Services.Dto
         /// <summary>
         /// 
         /// </summary>
-        public long userId { get; set; }
+        public long UserId { get; set; }
         /// <summary>
         /// 
         /// </summary>

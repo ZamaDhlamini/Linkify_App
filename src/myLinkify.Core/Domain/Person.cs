@@ -1,5 +1,7 @@
 ﻿using Abp.Domain.Entities.Auditing;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using myLinkify.Authorization.Users;
+using myLinkify.Domain.Antributes;
 using myLinkify.Domain.Enum;
 using System;
 using System.Collections.Generic;
@@ -10,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace myLinkify.Domain
 {
+    [DiscriminatorValue("Person")]
     public class Person: FullAuditedEntity<Guid>
     {
         public virtual string IdNumber { get; set; }
@@ -44,9 +47,9 @@ namespace myLinkify.Domain
         /// 
         /// </summary>
         /// 
+        public virtual Address Address { get; set; }
         public virtual RefListGender Gender { get; set; }
 
-        [NotMapped]
-        public virtual string[] RoleNames { get; set; }
+
     }
 }
