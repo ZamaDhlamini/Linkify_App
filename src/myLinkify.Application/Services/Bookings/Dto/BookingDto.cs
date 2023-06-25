@@ -14,14 +14,19 @@ namespace myLinkify.Services.Bookings.Dto
     [AutoMap(typeof(Booking))]
     public class BookingDto : EntityDto<Guid>
     {
-        public  TimeSpan StartTime { get; set; } //slot numbers
-        public  TimeSpan EndTime { get; set; } //slot numbers
+        /// <summary>
+        /// 
+        /// </summary>
         public  DateTime BookingDate { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         public RefListStatus? Status { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public RefListBranches? Branches { get; set; }
         /// <summary>
         /// 
         /// </summary>

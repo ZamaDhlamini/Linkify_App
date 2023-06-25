@@ -14,7 +14,7 @@ namespace myLinkify.Services.PersonService
         Task<PersonDto> GetAsync(Guid id);
         Task<List<PersonDto>> GetAllAsync();
         Task<PersonDto> UpdateAsync(PersonDto input);
-        Task<PersonDto> GetByUserIdAsync(Guid id);
+        Task<PersonDto> GetByUserIdAsync(long id);
         Task Delete(Guid id);
     }
 }

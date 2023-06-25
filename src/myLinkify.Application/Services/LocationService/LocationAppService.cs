@@ -14,9 +14,9 @@ namespace myLinkify.Services.LocationService
     {
         private readonly IRepository<Location, Guid> _locationRepository;
 
-        public LocationAppService(IRepository locationRepository)
+        public LocationAppService(IRepository<Location, Guid> locationRepository)
         {
-            _locationRepository = (IRepository<Location, Guid>)locationRepository;
+            _locationRepository = locationRepository;
         }
 
         public async Task<LocationDto> CreateAsync(LocationDto input)

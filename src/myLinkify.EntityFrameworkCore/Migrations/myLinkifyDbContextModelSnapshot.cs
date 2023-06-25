@@ -1626,6 +1626,9 @@ namespace myLinkify.Migrations
                     b.Property<int>("BookingToken")
                         .HasColumnType("int");
 
+                    b.Property<int>("Branches")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("CreationTime")
                         .HasColumnType("datetime2");
 
@@ -1638,9 +1641,6 @@ namespace myLinkify.Migrations
                     b.Property<DateTime?>("DeletionTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<TimeSpan>("EndTime")
-                        .HasColumnType("time");
-
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -1652,9 +1652,6 @@ namespace myLinkify.Migrations
 
                     b.Property<Guid?>("PersonId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<TimeSpan>("StartTime")
-                        .HasColumnType("time");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");

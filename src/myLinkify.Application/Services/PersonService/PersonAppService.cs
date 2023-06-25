@@ -28,6 +28,7 @@ namespace myLinkify.Services.PersonService
         public async Task<PersonDto> CreateAsync(PersonDto input)
         {
             var person = ObjectMapper.Map<Person>(input);
+          
             person.User = await CreateUser(input);
             return ObjectMapper.Map<PersonDto>(
                 await _PersonRepository.InsertAsync(person));
@@ -64,6 +65,7 @@ namespace myLinkify.Services.PersonService
         private async Task<User> CreateUser(PersonDto input)
         {
             var user = ObjectMapper.Map<User>(input);
+            user.UserName = input.Name;
             ObjectMapper.Map(input, user);
             if (!string.IsNullOrEmpty(user.NormalizedUserName) && !string.IsNullOrEmpty(user.NormalizedEmailAddress))
                 user.SetNormalizedNames();
@@ -81,10 +83,10 @@ namespace myLinkify.Services.PersonService
         }
 
         [HttpGet]
-        public async Task<PersonDto> GetByUserIdAsync(Guid id)
+        public async Task<PersonDto> GetByUserIdAsync(long id)
         {
-            var query = _PersonRepository.GetAllIncluding(m => m.User).FirstOrDefault(x => x.Id == id);
-            return ObjectMapper.Map<PersonDto>(query);
+            var person = _PersonRepository.FirstOrDefault(x => x.User.Id == id);
+            return ObjectMapper.Map<PersonDto>(person);
         }
 
 

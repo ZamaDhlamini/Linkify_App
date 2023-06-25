@@ -13,10 +13,12 @@ namespace myLinkify.Services.SarsNumberService
     public class SarsNumberAppService : ApplicationService, ISarsNumberAppService
     {
         private readonly IRepository<SarsNumber, Guid> _sarsNumberRepository;
+        private readonly Random _random;
 
-        public SarsNumberAppService(IRepository sarsNumberRepository)
+        public SarsNumberAppService(IRepository<SarsNumber, Guid> sarsNumberRepository)
         {
-            _sarsNumberRepository = (IRepository<SarsNumber, Guid>)sarsNumberRepository;
+            _sarsNumberRepository = sarsNumberRepository;
+            _random = new Random();
         }
 
         public async Task<SarsNumberDto> CreateAsync(SarsNumberDto input)
@@ -24,10 +26,24 @@ namespace myLinkify.Services.SarsNumberService
             input.Id = Guid.NewGuid();
 
             // Your logic for creating the SarsNumberDto goes here
+            input.Number = GenerateUniqueProviderNumber();
             var sarsNumber = ObjectMapper.Map<SarsNumber>(input);
             await _sarsNumberRepository.InsertAsync(sarsNumber);
 
             return ObjectMapper.Map<SarsNumberDto>(sarsNumber);
+        }
+
+        private int GenerateUniqueProviderNumber()
+        {
+            while (true)
+            {
+                var Sars = _random.Next(100, 100000);
+                var existingProvider = _sarsNumberRepository.FirstOrDefault(p => p.Number == Sars);
+                if (existingProvider == null)
+                {
+                    return Sars;
+                }
+            }
         }
 
         public async Task Delete(Guid id)

@@ -15,7 +15,7 @@ namespace myLinkify.Services.CardService.Dto
     {
         public PersonDto Person { get; set; }
         public string CardNumber { get; set; }
-        public int ExpiryDateMonth { get; set; }
-        public int ExpiryDateYear { get; set; }
+        public int ExpiraryDateMonth { get; set; }
+        public int ExpiraryDateYear { get; set; }
     }
 }
